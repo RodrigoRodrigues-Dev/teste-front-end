@@ -1,0 +1,15 @@
+@use "./variables" as v;
+
+@mixin title($size: 30px, $weight: 700) {
+  font-family: v.$font-default;
+  font-size: $size;
+  font-weight: $weight;
+  color: v.$color-blue;
+}
+
+@mixin subtitle($size: 15px, $weight: 700) {
+  font-family: v.$font-default;
+  font-size: $size;
+  font-weight: $weight;
+  color: v.$color-gray-dark;
+}
