@@ -1,0 +1,92 @@
+// Imports
+@use "@/assets/scss/variables" as v;
+
+// Block: home hero
+.home-hero {
+  position: relative;
+
+  background-image: url("@/assets/images/banner-hero/banner-hero.webp");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  padding: 80px 0;
+
+  // Pseudo-element: overlay gradient
+  &::after {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 60%;
+    height: 100%;
+
+    background: linear-gradient(-90deg, rgba(0, 0, 0, 0) 0%, v.$color-black 85.04%);
+    opacity: 0.8;
+    border-radius: 0px;
+  }
+
+  // Element: content container
+  &__content {
+    position: relative;
+    z-index: 1;
+  }
+
+  // Element: title
+  &__title {
+    margin-bottom: 25px;
+
+    font-size: 48px;
+    font-weight: 600;
+    color: v.$color-white;
+
+    line-height: 1;
+  }
+
+  // Element: description
+  &__description {
+    font-size: 32px;
+    color: v.$color-white;
+  }
+
+  // Element: highlight text
+  &__highlight {
+    font-weight: 700;
+    color: v.$color-yellow;
+  }
+
+  // Element: button
+  &__button {
+    margin-top: 45px;
+    padding: 13px 54px;
+
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+
+    background-color: v.$color-yellow;
+    color: v.$color-purple;
+
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: v.$color-white;
+    }
+  }
+}
+
+// Feature queries: background image format support
+@supports (background-image: url("@/assets/images/banner-hero/banner-hero.webp")) {
+  .home-hero {
+    background-image: url("@/assets/images/banner-hero/banner-hero.webp");
+  }
+}
+
+@supports (background-image: url("@/assets/images/banner-hero/banner-hero.avif")) {
+  .home-hero {
+    background-image: url("@/assets/images/banner-hero/banner-hero.avif");
+  }
+}
