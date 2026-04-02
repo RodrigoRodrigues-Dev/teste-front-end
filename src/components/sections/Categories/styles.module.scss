@@ -1,0 +1,70 @@
+// Imports
+@use "@/assets/scss/variables" as v;
+
+// Block: categories
+.categories {
+  // Element: list
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 40px;
+  }
+
+  // Element: card
+  &__card {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    margin-top: 39px;
+
+    transition: all 0.3s ease;
+
+    // State: hover
+    &:hover {
+      .categories__card__image {
+        background-color: v.$color-white;
+      }
+
+      .categories__card__text {
+        font-weight: 600;
+        color: v.$color-purple-bright;
+      }
+    }
+
+    // Element: card image
+    &__image {
+      height: 61px;
+      width: 61px;
+
+      box-sizing: content-box;
+      margin-bottom: 22px;
+      padding: 34px;
+
+      background-color: v.$color-gray-lighter;
+      box-shadow: 0px 4px 11px 0px v.$color-shadow-light;
+      border-radius: 16px;
+
+      transition: background-color 0.3s ease;
+
+      // Modifier: first item highlighted
+      &--first {
+        background-color: v.$color-white;
+      }
+    }
+
+    // Element: card text
+    &__text {
+      font-size: 14px;
+
+      color: v.$color-gray-text;
+      transition: color 0.3s ease;
+
+      // Modifier: first item highlighted
+      &--first {
+        font-weight: 600;
+        color: v.$color-purple-bright;
+      }
+    }
+  }
+}
