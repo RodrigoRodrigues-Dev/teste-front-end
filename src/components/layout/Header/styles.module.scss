@@ -1,0 +1,194 @@
+// Imports
+@use "@/assets/scss/variables" as v;
+
+// Block: header
+.header {
+  // Element: topbar
+  &__topbar {
+    display: flex;
+    justify-content: center;
+    gap: 119px;
+
+    margin: 6px 0;
+
+    font-size: 12px;
+    font-weight: 500;
+    color: v.$color-gray-medium;
+  }
+
+  // Element: topbar item
+  &__topbar-item {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+  }
+
+  // Element: topbar icon
+  &__topbar-icon {
+    width: 20px;
+    height: 20px;
+
+    color: v.$color-gray-medium;
+  }
+
+  // Element: topbar text
+  &__topbar-text {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  // Modifier: highlight text
+  &__topbar-highlight {
+    color: v.$color-purple-bright;
+    font-weight: 600;
+  }
+
+  // Element: main section
+  &__main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 12px 0;
+    border-top: 1px solid v.$color-gray-light;
+    border-bottom: 1px solid v.$color-gray-light;
+  }
+
+  // Element: logo
+  &__logo {
+    height: 41px;
+    width: 139px;
+  }
+
+  // Element: search container
+  &__search {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    width: 630px;
+    height: 48px;
+    padding: 14px 16px;
+
+    background-color: v.$color-beige-light;
+    border-radius: 8px;
+  }
+
+  // Element: search input
+  &__search-input {
+    width: 100%;
+    height: 100%;
+
+    font-size: 14px;
+    font-weight: 500;
+    color: v.$color-gray-dark;
+    background-color: transparent;
+    border: none;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  // Element: search button
+  &__search-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    transition: color 0.3s ease;
+
+    &:hover {
+      .header__search-icon {
+        color: v.$color-purple-bright;
+      }
+    }
+  }
+
+  // Element: search icon
+  &__search-icon {
+    width: 28px;
+    height: 28px;
+
+    color: v.$color-gray-medium;
+    transition: color 0.3s ease;
+  }
+
+  // Element: navigation menu
+  &__nav {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+
+  // Element: nav item
+  &__nav-item {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  // Element: nav icon
+  &__nav-icon {
+    width: 32px;
+    height: 32px;
+
+    color: v.$color-gray-medium;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: v.$color-purple-bright;
+    }
+  }
+
+  // Modifier: small nav icon (first item)
+  &__nav-icon--small {
+    width: 24px;
+    height: 24px;
+  }
+
+  // Element: bottom bar
+  &__bottombar {
+    padding: 9px 69px;
+    box-shadow: 0px 8px 16px 0px v.$color-shadow-dark;
+  }
+
+  // Element: bottom nav list
+  &__bottombar-list {
+    display: flex;
+    gap: 91px;
+  }
+
+  // Element: bottom nav item
+  &__bottombar-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-wrap: nowrap;
+    gap: 12px;
+
+    font-size: 12px;
+    text-transform: uppercase;
+
+    font-weight: 600;
+    color: v.$color-gray-medium;
+    cursor: pointer;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: v.$color-purple-bright;
+    }
+
+    // Modifier: selected state
+    &--selected {
+      color: v.$color-purple-bright;
+    }
+  }
+}
