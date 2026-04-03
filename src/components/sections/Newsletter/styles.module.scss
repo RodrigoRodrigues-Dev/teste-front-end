@@ -1,0 +1,84 @@
+// Imports
+@use "sass:color";
+@use "@/assets/scss/variables" as v;
+
+.newsletter {
+  background-color: v.$color-purple;
+
+  &__container {
+    display: flex;
+    gap: 105px;
+
+    padding: 40px 0;
+  }
+
+  &__header {
+    color: v.$color-white;
+  }
+
+  &__title {
+    font-size: 32px;
+    font-weight: 600;
+
+    margin-bottom: 16px;
+  }
+
+  &__description {
+    font-size: 14px;
+    font-weight: 300;
+  }
+
+  &__form-wrapper {
+    flex: 1;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &__input {
+    border: none;
+    border-radius: 8px;
+
+    padding: 12px;
+    margin-right: 8px;
+    font-size: 14px;
+
+    background-color: v.$color-white;
+  }
+
+  &__button {
+    padding: 12px 40px;
+    font-size: 14px;
+    font-weight: 600;
+
+    border: none;
+    border-radius: 8px;
+    background-color: v.$color-yellow;
+
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: color.adjust(v.$color-yellow, $lightness: -10%);
+    }
+  }
+
+  &__terms {
+    display: flex;
+    align-items: center;
+  }
+
+  &__checkbox {
+    cursor: pointer;
+    margin-right: 8px;
+  }
+
+  &__terms-label {
+    font-size: 14px;
+    color: v.$color-white;
+    cursor: pointer;
+  }
+}
