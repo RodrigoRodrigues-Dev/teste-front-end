@@ -1,0 +1,95 @@
+// Imports
+@use "@/assets/scss/variables" as v;
+
+.footer {
+  &__top {
+    background-color: v.$color-gray-lighter;
+  }
+
+  &__bottom {
+    padding: 13px 0;
+    font-size: 13px;
+    text-align: center;
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+    padding: 61px 0;
+  }
+
+  &__brand {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__logo {
+    width: 164px;
+    height: 48px;
+  }
+
+  &__description {
+    margin-top: 14px;
+    color: v.$color-gray-dark;
+  }
+
+  &__social {
+    margin-top: 27px;
+  }
+
+  &__social-list {
+    display: flex;
+    gap: 57px;
+  }
+
+  &__social-item {
+    list-style: none;
+  }
+
+  &__social-link {
+    display: inline-flex;
+  }
+
+  &__social-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  &__divider {
+    // Visual divider between brand and menu
+    width: 1px;
+    height: 260px;
+    margin: 0 90px;
+    background-color: v.$color-gray-divider;
+  }
+
+  &__menu {
+    display: flex;
+    gap: 100px;
+  }
+
+  &__menu-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &__menu-title {
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: v.$color-gray-text-muted;
+  }
+
+  &__menu-item {
+    list-style: none;
+  }
+
+  &__menu-link {
+    font-size: 14px;
+    color: v.$color-gray-text-muted;
+
+    &:hover {
+      color: v.$color-gray-text-strong;
+    }
+  }
+}
