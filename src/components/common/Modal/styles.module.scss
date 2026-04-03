@@ -1,0 +1,134 @@
+// Imports
+@use "@/assets/scss/variables" as v;
+
+.modal {
+
+  // Overlay
+  &__overlay {
+    z-index: 999;
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(v.$color-black, 0.6);
+  }
+
+  // Main container
+  position: relative;
+  display: flex;
+  gap: 2rem;
+
+  max-width: 769px;
+  width: 90%;
+  height: 300px;
+
+  padding: 56px;
+  border-radius: 8px;
+  background: v.$color-white;
+
+
+  // close button
+  &__close {
+    position: absolute;
+    top: 17px;
+    right: 29px;
+
+    background: none;
+    border: none;
+    font-size: 19px;
+    font-weight: 700;
+    cursor: pointer;
+    color: v.$color-gray-medium;
+  }
+
+  // Content
+  &__image {
+    width: 247px;
+    height: 192px;
+    object-fit: contain;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__title {
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: v.$color-gray-dark;
+  }
+
+  &__price {
+    font-size: 20px;
+    font-weight: 600;
+    color: v.$color-gray-dark;
+  }
+
+  &__description {
+    margin-top: 10px;
+    font-size: 10px;
+    color: v.$color-gray-dark;
+  }
+
+  &__link {
+    font-size: 11px;
+    font-weight: 600;
+    color: v.$color-blue;
+  }
+
+  // Actions
+  &__actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+
+    margin-top: 8px;
+  }
+
+  &__quantity {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+
+    border: 1px solid v.$color-gray-200;
+    border-radius: 8px;
+
+    button {
+      width: 35px;
+      height: 36px;
+
+      background: none;
+      border: none;
+
+      font-size: 22px;
+      cursor: pointer;
+    }
+
+    span {
+      width: 40px;
+      text-align: center;
+      font-weight: 500;
+    }
+  }
+
+  &__buy {
+    flex: 1;
+
+    width: 188px;
+    height: 36px;
+    font-weight: 700;
+    font-size: 14px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: v.$color-yellow;
+    cursor: pointer;
+  }
+}
