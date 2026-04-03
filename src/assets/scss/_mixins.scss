@@ -4,6 +4,8 @@
   font-family: v.$font-default;
   font-size: $size;
   font-weight: $weight;
+
+  white-space: nowrap;
   color: v.$color-blue;
 }
 
