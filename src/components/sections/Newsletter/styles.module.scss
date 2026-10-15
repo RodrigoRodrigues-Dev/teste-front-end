@@ -1,31 +1,40 @@
-// Imports
 @use "sass:color";
 @use "@/assets/scss/variables" as v;
 
 .newsletter {
+  margin-top: 90px;
   background-color: v.$color-purple;
 
   &__container {
     display: flex;
-    gap: 105px;
+    align-items: flex-start;
+    gap: 32px;
 
     padding: 40px 0;
   }
 
   &__header {
+    flex: 1 1 280px;
+    width: auto;
+    max-width: 100%;
+    min-width: 0;
     color: v.$color-white;
   }
 
   &__title {
     font-size: 32px;
     font-weight: 600;
+    line-height: 1.2;
 
-    margin-bottom: 16px;
+    margin-bottom: 8px;
   }
 
   &__description {
+    max-width: 515px;
     font-size: 14px;
     font-weight: 300;
+    line-height: 18px;
+    overflow-wrap: break-word;
   }
 
   &__form-wrapper {
@@ -35,24 +44,37 @@
   &__form {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 8px;
   }
 
   &__input {
-    border: none;
+    flex: 1 1 140px;
+    width: auto;
+    max-width: 233px;
+    min-width: 0;
+    height: 42px;
+    border: 1px solid #e7e7e7;
     border-radius: 8px;
-
-    padding: 12px;
-    margin-right: 8px;
+    padding: 12px 24px;
     font-size: 14px;
-
+    line-height: 18px;
+    color: #676767;
     background-color: v.$color-white;
   }
 
+  &__fields {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
   &__button {
-    padding: 12px 40px;
+    height: 42px;
+    padding: 15px 40px;
     font-size: 14px;
     font-weight: 600;
+    line-height: 12px;
+    color: #161615;
 
     border: none;
     border-radius: 8px;
@@ -73,12 +95,86 @@
 
   &__checkbox {
     cursor: pointer;
-    margin-right: 8px;
+    width: 15px;
+    height: 15px;
+    margin-right: 4px;
   }
 
   &__terms-label {
     font-size: 14px;
     color: v.$color-white;
     cursor: pointer;
+  }
+
+  &__success {
+    color: v.$color-white;
+    font-size: 16px;
+    font-weight: 500;
+  }
+}
+
+@media (min-width: 1281px) {
+  .newsletter__container {
+    gap: 124px;
+  }
+
+  .newsletter__header {
+    flex: 0 0 515px;
+    width: 515px;
+  }
+
+  .newsletter__input {
+    flex: 0 0 233px;
+    width: 233px;
+  }
+}
+
+@media (max-width: 1280px) {
+  .newsletter__container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+@media (max-width: 900px) {
+  .newsletter__container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 24px;
+    min-width: 0;
+  }
+
+  .newsletter__header {
+    flex: none;
+    width: 100%;
+  }
+
+  .newsletter__description {
+    max-width: 100%;
+  }
+
+  .newsletter__form-wrapper {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .newsletter__input {
+    flex: 1 1 auto;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .newsletter {
+    margin-top: 48px;
+  }
+
+  .newsletter__fields {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .newsletter__button {
+    width: 100%;
   }
 }

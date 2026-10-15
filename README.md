@@ -1,94 +1,85 @@
-<h1 align="center">
-  Ecoverse (Teste Front End)
-</h1>
+# Econverse — Teste Front-end
 
-Projeto desenvolvido como parte do teste técnico para a vaga de Front-End Júnior na Econverse.
+Página institucional da Econverse, feita para o teste de Front-end. O layout segue o Figma do desafio: home, vitrine de produtos e modal de compra.
 
+## Tecnologias
 
-<p align="center">
-  <img src=".github/preview.jpg" width="100%" />
-</p>
-
-## 🛠️ Tecnologias utilizadas
-
-- React
+- React 19
 - TypeScript
 - Vite
 - Sass (SCSS Modules)
-- ESLint + Prettier
+- ESLint e Prettier
 
-## ⚙️ Funcionalidades
+Não há biblioteca de componentes de UI.
 
-- Página Home conforme layout do Figma
-- Vitrine de produtos em formato de slider
-- Modal de produto ao clicar no botão "Comprar"
+## Funcionalidades
 
-<br>
+- Home com header, banner, categorias, vitrines, parceiros, marcas, newsletter e footer
+- Vitrine em carrossel, com a quantidade de cards adaptada à largura da tela
+- Produtos carregados do JSON oficial do teste
+- Modal com os dados do produto ao clicar no card ou em Comprar
+- Newsletter com validação básica no navegador
 
-# 🛠️ Instalação
+O endpoint oficial é:
 
-### Requisitos
+`https://app.econverse.com.br/teste-front-end/junior/tecnologia/lista-produtos/produtos.json`
 
-- Node.js (versão 14 ou superior)
-- npm (versão 6 ou superior)
+Essa resposta não envia `Access-Control-Allow-Origin`. Por isso o Vite, em `dev` e `preview`, encaminha `GET /api/produtos` para essa URL. Se a requisição falhar, a página usa uma cópia local dos mesmos produtos e oferece tentar de novo.
 
-### Passos
+As abas da vitrine (celular, acessórios, tablets e as demais) seguem o layout. O JSON não traz categoria, então elas não filtram a lista.
 
-1. **Clone o repositório:**
+## Requisitos
 
-```sh
-git clone https://github.com/RodrigoRodrigues-Dev/teste-front-end.git
+- Node.js 20.19 ou superior, ou Node.js 22.12 ou superior
+- npm 10 ou superior
 
-cd teste-front-end
-```
-
-2. **Instale as dependências:**
+## Como executar
 
 ```sh
 npm install
-```
-<br>
-
-# 🚀 Uso
-Para iniciar a aplicação em modo de desenvolvimento, execute:
-
-```sh
 npm run dev
 ```
-Para construir o projeto para produção, utilize:
+
+Build de produção e pré-visualização:
 
 ```sh
 npm run build
+npm run preview
 ```
 
-Rodar o ESLint:
+Verificação:
 
 ```sh
 npm run lint
-```
-Rodar o Prettier (formatar):
-
-```sh
 npm run format
 ```
-Estrutura de pastas:
-```sh
+
+Não há suíte de testes automatizados. O fluxo para conferir na mão:
+
+1. A home carrega os dez produtos nas duas vitrines.
+2. As setas movem um card por vez e o carrossel continua depois do último item.
+3. Clicar no card ou em Comprar abre o modal com nome, preço e foto daquele produto.
+4. Escape, o botão fechar ou o clique fora fecham o modal.
+5. A newsletter não recarrega a página; nome, e-mail e o aceite dos termos são obrigatórios.
+6. Em larguras menores, a vitrine mostra dois cards e depois um.
+
+## Estrutura
+
+```text
 src/
   components/
     common/
     layout/
     sections/
+  data/
+  services/
+  utils/
   assets/
     images/
     icons/
-  styles/
+    scss/
 ```
 
-## Observações
-Os produtos são consumidos a partir de um mock local baseado no JSON fornecido no teste.
-O modal é aberto ao clicar no botão de compra do produto.
-
-### Autor
+## Autor
 
 Rodrigo Rodrigues
-<br>

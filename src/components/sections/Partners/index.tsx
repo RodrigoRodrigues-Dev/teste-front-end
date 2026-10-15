@@ -1,10 +1,7 @@
-// Styles
 import styles from "./styles.module.scss";
 
-// External Components
 import Container from "@/components/common/Container";
 
-// Partner card data
 const PARTNER_CARDS = [
   {
     id: 1,
@@ -30,7 +27,9 @@ const Partners = () => (
             <p className={styles["partners__card__description"]}>
               {card.description} <br /> {card.descriptionContinue}
             </p>
-            <button className={styles["partners__card__button"]}>Confira</button>
+            <button className={styles["partners__card__button"]} type="button">
+              Confira
+            </button>
           </div>
         </div>
       ))}

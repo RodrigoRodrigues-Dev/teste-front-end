@@ -1,18 +1,13 @@
-// Styles
 import styles from "./styles.module.scss";
 
-// External Components
 import { Icon } from "@/components/common/SvgIcon";
 import Container from "@/components/common/Container";
 
-// Assets
 import Logo from "@/assets/images/logo/Logo.png";
 
-// Header Component
 const Header = () => (
   <header className={styles.header}>
     <Container>
-      {/* Top bar - Purchase assurances */}
       <div className={styles["header__topbar"]}>
         <div className={styles["header__topbar-item"]}>
           <Icon name="shield-check" className={styles["header__topbar-icon"]} />
@@ -33,55 +28,88 @@ const Header = () => (
           </span>
         </div>
       </div>
-      {/* Main bar - Logo, search and user actions */}
       <div className={styles["header__main"]}>
-        <img className={styles["header__logo"]} src={Logo} alt="Logo" />
-        <div className={styles["header__search"]}>
+        <img className={styles["header__logo"]} src={Logo} alt="Econverse" />
+        <form
+          className={styles["header__search"]}
+          role="search"
+          onSubmit={(event) => event.preventDefault()}
+        >
+          <label className="sr-only" htmlFor="site-search">
+            O que você está buscando?
+          </label>
           <input
+            id="site-search"
             className={styles["header__search-input"]}
-            type="text"
+            type="search"
             placeholder="O que você está buscando?"
           />
-          <button className={styles["header__search-button"]}>
+          <button type="submit" className={styles["header__search-button"]} aria-label="Buscar">
             <Icon name="magnifying-glass" className={styles["header__search-icon"]} />
           </button>
-        </div>
-        <nav>
+        </form>
+        <nav aria-label="Atalhos da conta">
           <ul className={styles["header__nav"]}>
-            <li className={styles["header__nav-item"]}>
-              <Icon
-                name="group"
-                className={`${styles["header__nav-icon"]} ${styles["header__nav-icon--small"]}`}
-              />
+            <li>
+              <button type="button" className={styles["header__icon-button"]} aria-label="Pedidos">
+                <Icon
+                  name="group"
+                  className={`${styles["header__nav-icon"]} ${styles["header__nav-icon--small"]}`}
+                />
+              </button>
             </li>
-            <li className={styles["header__nav-item"]}>
-              <Icon name="heart" className={styles["header__nav-icon"]} />
+            <li>
+              <button
+                type="button"
+                className={styles["header__icon-button"]}
+                aria-label="Favoritos"
+              >
+                <Icon name="heart" className={styles["header__nav-icon"]} />
+              </button>
             </li>
-            <li className={styles["header__nav-item"]}>
-              <Icon name="user-circle" className={styles["header__nav-icon"]} />
+            <li>
+              <button
+                type="button"
+                className={styles["header__icon-button"]}
+                aria-label="Minha conta"
+              >
+                <Icon name="user-circle" className={styles["header__nav-icon"]} />
+              </button>
             </li>
-            <li className={styles["header__nav-item"]}>
-              <Icon name="shopping-cart" className={styles["header__nav-icon"]} />
+            <li>
+              <button type="button" className={styles["header__icon-button"]} aria-label="Carrinho">
+                <Icon name="shopping-cart" className={styles["header__nav-icon"]} />
+              </button>
             </li>
           </ul>
         </nav>
       </div>
-      {/* Bottom bar - Main categories menu */}
       <div className={styles["header__bottombar"]}>
-        <nav>
+        <nav aria-label="Categorias principais">
           <ul className={styles["header__bottombar-list"]}>
-            <li className={styles["header__bottombar-item"]}>Todas categorias</li>
-            <li className={styles["header__bottombar-item"]}>Supermercado</li>
-            <li className={styles["header__bottombar-item"]}>Livros</li>
-            <li className={styles["header__bottombar-item"]}>Moda</li>
-            <li className={styles["header__bottombar-item"]}>Lançamentos</li>
-            <li
-              className={`${styles["header__bottombar-item"]} ${styles["header__bottombar-item--selected"]}`}
-            >
-              Ofertas do dia
-            </li>
-            <li className={styles["header__bottombar-item"]}>
-              <Icon name="crown-simple" /> Assinatura
+            {[
+              "Todas categorias",
+              "Supermercado",
+              "Livros",
+              "Moda",
+              "Lançamentos",
+              "Ofertas do dia",
+            ].map((item) => (
+              <li key={item}>
+                <button
+                  type="button"
+                  className={`${styles["header__bottombar-item"]} ${
+                    item === "Ofertas do dia" ? styles["header__bottombar-item--selected"] : ""
+                  }`}
+                >
+                  {item}
+                </button>
+              </li>
+            ))}
+            <li>
+              <button type="button" className={styles["header__bottombar-item"]}>
+                <Icon name="crown-simple" /> Assinatura
+              </button>
             </li>
           </ul>
         </nav>

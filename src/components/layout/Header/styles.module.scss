@@ -1,29 +1,26 @@
-// Imports
 @use "@/assets/scss/variables" as v;
 
-// Block: header
 .header {
-  // Element: topbar
   &__topbar {
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 119px;
 
-    margin: 6px 0;
+    height: 32px;
 
     font-size: 12px;
     font-weight: 500;
     color: v.$color-gray-medium;
   }
 
-  // Element: topbar item
   &__topbar-item {
     display: flex;
     align-items: center;
+    flex-shrink: 0;
     gap: 9px;
   }
 
-  // Element: topbar icon
   &__topbar-icon {
     width: 20px;
     height: 20px;
@@ -31,58 +28,60 @@
     color: v.$color-gray-medium;
   }
 
-  // Element: topbar text
   &__topbar-text {
     display: flex;
     align-items: center;
     gap: 4px;
+    white-space: nowrap;
   }
 
-  // Modifier: highlight text
   &__topbar-highlight {
     color: v.$color-purple-bright;
     font-weight: 600;
   }
 
-  // Element: main section
   &__main {
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    padding: 12px 0;
+    height: 72px;
     border-top: 1px solid v.$color-gray-light;
     border-bottom: 1px solid v.$color-gray-light;
   }
 
-  // Element: logo
   &__logo {
     height: 41px;
     width: 139px;
   }
 
-  // Element: search container
   &__search {
     display: flex;
     align-items: center;
     gap: 8px;
 
+    flex: 0 1 630px;
     width: 630px;
+    max-width: 100%;
     height: 48px;
-    padding: 14px 16px;
+    padding: 0 24px 0 16px;
 
     background-color: v.$color-beige-light;
-    border-radius: 8px;
+    border-radius: 10px;
+
+    &:focus-within {
+      outline: 2px solid v.$color-purple-bright;
+      outline-offset: 2px;
+    }
   }
 
-  // Element: search input
   &__search-input {
     width: 100%;
     height: 100%;
 
     font-size: 14px;
     font-weight: 500;
-    color: v.$color-gray-dark;
+    color: v.$color-gray-medium;
     background-color: transparent;
     border: none;
 
@@ -91,7 +90,6 @@
     }
   }
 
-  // Element: search button
   &__search-button {
     display: flex;
     align-items: center;
@@ -111,7 +109,6 @@
     }
   }
 
-  // Element: search icon
   &__search-icon {
     width: 28px;
     height: 28px;
@@ -120,21 +117,22 @@
     transition: color 0.3s ease;
   }
 
-  // Element: navigation menu
   &__nav {
     display: flex;
     align-items: center;
     gap: 32px;
   }
 
-  // Element: nav item
-  &__nav-item {
+  &__icon-button {
     display: flex;
     align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: none;
+    background: none;
     cursor: pointer;
   }
 
-  // Element: nav icon
   &__nav-icon {
     width: 32px;
     height: 32px;
@@ -147,25 +145,25 @@
     }
   }
 
-  // Modifier: small nav icon (first item)
   &__nav-icon--small {
     width: 24px;
     height: 24px;
   }
 
-  // Element: bottom bar
   &__bottombar {
-    padding: 9px 69px;
+    display: flex;
+    align-items: center;
+    height: 40px;
     box-shadow: 0px 8px 16px 0px v.$color-shadow-dark;
   }
 
-  // Element: bottom nav list
   &__bottombar-list {
     display: flex;
+    justify-content: center;
+    width: 100%;
     gap: 91px;
   }
 
-  // Element: bottom nav item
   &__bottombar-item {
     display: flex;
     align-items: center;
@@ -173,7 +171,11 @@
 
     text-wrap: nowrap;
     gap: 12px;
+    padding: 0;
+    border: none;
+    background: none;
 
+    font-family: inherit;
     font-size: 12px;
     text-transform: uppercase;
 
@@ -186,9 +188,60 @@
       color: v.$color-purple-bright;
     }
 
-    // Modifier: selected state
     &--selected {
       color: v.$color-purple-bright;
+    }
+  }
+}
+
+@media (max-width: 1100px) {
+  .header {
+    &__topbar {
+      justify-content: flex-start;
+      gap: 24px;
+      overflow-x: auto;
+    }
+
+    &__main {
+      gap: 16px;
+    }
+
+    &__bottombar {
+      overflow-x: auto;
+    }
+
+    &__bottombar-list {
+      width: max-content;
+      gap: 28px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    &__main {
+      flex-wrap: wrap;
+    }
+
+    &__logo {
+      width: 120px;
+      height: auto;
+    }
+
+    &__search {
+      order: 3;
+      width: 100%;
+    }
+
+    &__nav {
+      gap: 16px;
+    }
+
+    &__topbar {
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      overflow: visible;
     }
   }
 }
