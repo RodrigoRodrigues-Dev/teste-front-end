@@ -1,6 +1,10 @@
 import type { Product } from "@/types/products";
 
-export const MOCK_PRODUCTS: Product[] = [
+/**
+ * Cópia local do JSON oficial.
+ * Usada apenas se a requisição falhar, para a página continuar demonstrável.
+ */
+export const FALLBACK_PRODUCTS: Product[] = [
   {
     productName: "Iphone 11 PRO MAX BRANCO 1",
     descriptionShort: "Iphone 11 PRO MAX BRANCO 1",

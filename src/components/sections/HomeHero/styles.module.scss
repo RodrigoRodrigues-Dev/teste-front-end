@@ -8,7 +8,11 @@
   background-image: url("@/assets/images/banner-hero/banner-hero.webp");
   background-size: cover;
   background-position: 2000px 1900px;
-  padding: 80px 0;
+  padding: 78px 0 55px;
+
+  @media (max-width: 1100px) {
+    background-position: center;
+  }
 
   // Pseudo-element: overlay gradient
   &::after {
@@ -34,18 +38,20 @@
 
   // Element: title
   &__title {
-    margin-bottom: 25px;
+    max-width: 822px;
+    margin-bottom: 18px;
 
     font-size: 48px;
     font-weight: 600;
     color: v.$color-white;
-
-    line-height: 1;
+    line-height: 50px;
   }
 
   // Element: description
   &__description {
     font-size: 32px;
+    font-weight: 400;
+    line-height: normal;
     color: v.$color-white;
   }
 
@@ -57,13 +63,18 @@
 
   // Element: button
   &__button {
-    margin-top: 45px;
-    padding: 13px 54px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    margin-top: 41px;
+    padding: 0 49px;
 
     font-size: 16px;
     font-weight: 600;
+    line-height: normal;
     border: none;
-    border-radius: 8px;
+    border-radius: 5px;
     cursor: pointer;
 
     background-color: v.$color-yellow;
@@ -87,5 +98,23 @@
 @supports (background-image: url("@/assets/images/banner-hero/banner-hero.avif")) {
   .home-hero {
     background-image: url("@/assets/images/banner-hero/banner-hero.avif");
+  }
+}
+
+@media (max-width: 768px) {
+  .home-hero {
+    padding: 48px 0;
+
+    &::after {
+      width: 100%;
+    }
+
+    &__title {
+      font-size: 32px;
+    }
+
+    &__description {
+      font-size: 22px;
+    }
   }
 }

@@ -15,7 +15,8 @@
   &__container {
     display: flex;
     align-items: center;
-    padding: 61px 0;
+    gap: 90px;
+    padding: 42px 0;
   }
 
   &__brand {
@@ -29,7 +30,11 @@
   }
 
   &__description {
-    margin-top: 14px;
+    max-width: 354px;
+    margin-top: 18px;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: normal;
     color: v.$color-gray-dark;
   }
 
@@ -39,7 +44,7 @@
 
   &__social-list {
     display: flex;
-    gap: 57px;
+    gap: 26px;
   }
 
   &__social-item {
@@ -48,6 +53,10 @@
 
   &__social-link {
     display: inline-flex;
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
   }
 
   &__social-icon {
@@ -58,8 +67,9 @@
   &__divider {
     // Visual divider between brand and menu
     width: 1px;
-    height: 260px;
-    margin: 0 90px;
+    height: 198px;
+    margin: 0;
+    flex-shrink: 0;
     background-color: v.$color-gray-divider;
   }
 
@@ -71,12 +81,14 @@
   &__menu-list {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 16px;
   }
 
   &__menu-title {
+    font-size: 16px;
     font-weight: 700;
-    margin-bottom: 10px;
+    line-height: 16px;
+    margin-bottom: 20px;
     color: v.$color-gray-text-muted;
   }
 
@@ -85,11 +97,64 @@
   }
 
   &__menu-link {
+    padding: 0;
+    border: none;
+    background: none;
+    font-family: inherit;
     font-size: 14px;
+    line-height: 16px;
     color: v.$color-gray-text-muted;
+    cursor: pointer;
 
     &:hover {
       color: v.$color-gray-text-strong;
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .footer {
+    &__container,
+    &__menu {
+      gap: 32px;
+    }
+  }
+}
+
+@media (max-width: 1280px) {
+  .footer {
+    &__container,
+    &__bottom {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .footer {
+    &__container {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 32px;
+      padding: 40px 16px;
+    }
+
+    &__divider {
+      width: 100%;
+      height: 1px;
+      margin: 0;
+    }
+
+    &__menu {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 28px;
+      width: 100%;
+    }
+
+    &__menu-title {
+      margin-bottom: 12px;
     }
   }
 }

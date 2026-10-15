@@ -1,19 +1,15 @@
-// Imports
 @use "sass:color";
 @use "@/assets/scss/variables" as v;
 @use "@/assets/scss/mixins" as m;
 
-// SHOWCASE Block
 .showcase {
-  margin: 90px 0;
-
+  margin-top: 90px;
   position: relative;
 
-  // Header Element
   &__header {
     display: flex;
     align-items: center;
-    gap: 24px;
+    gap: 34px;
   }
 
   &__header__divider {
@@ -24,23 +20,21 @@
 
   &__header__title {
     @include m.title();
+    line-height: 45px;
     white-space: nowrap;
     flex-shrink: 0;
   }
 
-  // Filters Element
   &__filters {
     width: 100%;
+    margin-top: 4px;
   }
 
   &__filters__list {
     display: flex;
-    gap: 0;
-
     width: 100%;
     padding: 0;
     margin: 0;
-
     list-style: none;
   }
 
@@ -50,143 +44,162 @@
     align-items: center;
     justify-content: center;
 
+    height: 40px;
     font-size: 16px;
+    font-weight: 400;
+    line-height: 16px;
+    color: #3b3b3b;
     text-transform: uppercase;
-
+    background-color: v.$color-white;
     border: 1px solid v.$color-gray-soft;
     border-left: none;
-    padding: 12px 24px;
-
-    transition: background-color 0.3s ease, color 0.3s ease;
 
     &:first-child {
       border-left: 1px solid v.$color-gray-soft;
-      font-weight: 700;
+    }
+
+    button {
+      width: 100%;
+      height: 100%;
+      padding: 0 8px;
+      border: none;
+      background: none;
+      font: inherit;
+      font-weight: inherit;
+      line-height: inherit;
+      text-transform: inherit;
+      color: inherit;
+      cursor: pointer;
+    }
+
+    &:hover {
       color: v.$color-blue;
     }
 
-    a {
-      text-decoration: none;
-      color: inherit;
-      display: block;
-
-      &:hover {
-        color: v.$color-blue;
-      }
-    }
-
-    &:hover {
-      background-color: v.$color-gray-lighter;
-      cursor: pointer;
-
-      .showcase__filters__link {
-        font-weight: 700;
-        color: v.$color-blue;
-      }
+    &--active {
+      font-weight: 700;
+      color: v.$color-blue;
     }
   }
 
-  &__link {
-    width: 100%;
-    height: 100%;
-  }
-
-  // "All" Link
   &__all {
+    width: 100%;
+    margin-top: 4px;
     font-size: 15px;
     font-weight: 700;
+    line-height: 23px;
     color: v.$color-gray-dark;
-    width: 100%;
     text-align: center;
+
+    button {
+      border: none;
+      background: none;
+      padding: 0;
+      font: inherit;
+      font-weight: inherit;
+      color: inherit;
+      cursor: pointer;
+    }
   }
 
-  // Content Container
+  &__status {
+    margin-top: 16px;
+    text-align: center;
+    color: v.$color-gray-dark;
+    font-size: 14px;
+
+    button {
+      margin-left: 8px;
+      border: none;
+      background: none;
+      padding: 0;
+      font: inherit;
+      font-weight: 700;
+      color: v.$color-blue;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+
   &__content {
     position: relative;
-    padding: 40px 0;
-
-    max-width: 1310px;
-    margin: 0 auto;
-    overflow: hidden;
-  }
-
-  // Slider Wrapper
-  &__slider-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    position: relative;
-
-    margin: 0 auto;
     max-width: 1280px;
+    margin: 24px auto 0;
+    padding: 0;
   }
 
-  // Slider Navigation Buttons
+  &__viewport-wrap {
+    position: relative;
+  }
+
+  &__viewport {
+    overflow: hidden;
+    padding: 12px 0 20px;
+    margin: -12px 0 -20px;
+  }
+
   &__slider-button {
-    z-index: 999;
+    z-index: 2;
     position: absolute;
     top: 50%;
-    left: 1590px;
-    transform: translateY(50%);
-    width: 40px;
-    height: 40px;
-    border: none;
+    transform: translateY(-50%);
+    width: 32px;
+    height: 32px;
+    border: 1px solid v.$color-gray-light;
     border-radius: 50%;
     background-color: v.$color-white;
     color: v.$color-gray-dark;
-    font-size: 24px;
-    font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 0px 2px 6px 0px v.$color-shadow-light;
 
-    box-shadow: 0px 4px 4px 0px v.$color-shadow-light;
+    &--prev {
+      left: -47px;
+    }
 
-    &:hover {
+    &--next {
+      right: -47px;
+    }
+
+    &:hover:not(:disabled) {
       background-color: color.adjust(v.$color-white, $lightness: -10%);
       box-shadow: 0 4px 12px rgba(v.$color-black, 0.2);
     }
 
-    &:active {
-      transform: translateY(50%) scale(0.95);
+    &:active:not(:disabled) {
+      transform: translateY(-50%) scale(0.95);
     }
 
-    &:first-of-type {
-      left: 260px;
-    }
-
-    &:last-of-type {
-      right: -30px;
+    &:disabled {
+      cursor: default;
+      opacity: 0.7;
     }
   }
 
-  // Products Grid / Carousel
   &__products {
-    flex: 1;
     display: flex;
     flex-wrap: nowrap;
     gap: 18px;
-
     width: 100%;
-    padding-bottom: 8px;
-    margin-left: 5px;
-
-    transition: transform 0.4s ease-in-out;
   }
 
-  // Product Card Element
   &__product-card {
     display: flex;
     flex-direction: column;
-
-    padding: 17px 12px;
-
-    border-radius: 16px;
-    box-shadow: 0px 0px 19px -3px rgba(0,0,0,0.1);
+    flex: 0 0 calc((100% - (var(--visible-cards, 4) - 1) * 18px) / var(--visible-cards, 4));
+    min-width: 0;
+    min-height: 500px;
+    padding: 16px 13px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 3px 19px rgba(0, 0, 0, 0.22);
     background-color: v.$color-white;
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+    transition:
+      box-shadow 0.3s ease,
+      transform 0.3s ease;
 
     &:hover {
       box-shadow: 0 0 28px rgba(0, 0, 0, 0.15);
@@ -195,13 +208,11 @@
   }
 
   &__product-card__image {
-    width: 278px;
+    width: 100%;
     height: 228px;
-    object-fit: cover;
-
-    margin: 0 auto;
+    object-fit: contain;
+    margin: 0 auto 9px;
     border-radius: 8px;
-    margin-bottom: 12px;
   }
 
   &__product-card__info {
@@ -210,23 +221,15 @@
     flex-direction: column;
   }
 
-  &__product-card__title {
-    font-size: 14px;
-    font-weight: 600;
-    margin: 0 0 8px 0;
-    line-height: 1.4;
-    color: v.$color-gray-dark;
-  }
-
   &__product-card__description {
-    font-size: 13px;
+    font-size: 15px;
+    font-weight: 300;
     color: v.$color-gray-dark;
-    margin: 0 0 12px 0;
-    line-height: 1.4;
+    margin: 0 0 12px;
+    line-height: 23px;
     flex-grow: 1;
   }
 
-  // Prices Container
   &__product-card__prices {
     margin-bottom: 16px;
     display: flex;
@@ -235,52 +238,54 @@
   }
 
   &__product-card__price--original {
-    font-size: 13px;
-    color: v.$color-gray-medium;
+    font-size: 16px;
+    font-weight: 400;
+    color: #808080;
     text-decoration: line-through;
     margin: 0;
   }
 
   &__product-card__price--final {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 700;
-
     margin: 0;
     color: v.$color-gray-dark;
   }
 
   &__product-card__price--installment {
     font-size: 12px;
-
     margin: 0;
     color: v.$color-gray-dark;
   }
 
   &__product-card__price--shipping {
     font-size: 12px;
-    font-weight: 600;
-
+    font-weight: 400;
     margin: 0;
     color: v.$color-blue;
   }
 
-  // Button
   &__product-card__button {
     display: flex;
     align-items: center;
     justify-content: center;
-
     width: 100%;
-    padding: 12px 0;
+    height: 44px;
+    margin-top: 12px;
+    padding: 0;
     font-size: 14px;
-    font-weight: 600;
-
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0;
+    text-transform: uppercase;
     border: none;
-    border-radius: 8px;
+    border-radius: 4px;
     color: v.$color-white;
     background-color: v.$color-blue;
     cursor: pointer;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    transition:
+      background-color 0.3s ease,
+      box-shadow 0.3s ease;
 
     &:hover {
       background-color: color.adjust(v.$color-blue, $lightness: -10%);
@@ -293,3 +298,68 @@
   }
 }
 
+@media (max-width: 1374px) {
+  .showcase__content {
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+
+  .showcase__slider-button--prev {
+    left: -40px;
+  }
+
+  .showcase__slider-button--next {
+    right: -40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .showcase {
+    margin-top: 48px;
+  }
+
+  .showcase__header {
+    gap: 12px;
+  }
+
+  .showcase__header__title {
+    font-size: 20px;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .showcase__filters__list {
+    overflow-x: auto;
+  }
+
+  .showcase__filters__item {
+    flex: 0 0 auto;
+  }
+
+  .showcase__content {
+    margin-top: 16px;
+    padding-left: 44px;
+    padding-right: 44px;
+  }
+
+  .showcase__product-card {
+    min-height: 0;
+  }
+
+  .showcase__slider-button--prev {
+    left: -36px;
+  }
+
+  .showcase__slider-button--next {
+    right: -36px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .showcase__products,
+  .showcase__product-card,
+  .showcase__product-card__button,
+  .showcase__slider-button {
+    transition: none;
+  }
+}

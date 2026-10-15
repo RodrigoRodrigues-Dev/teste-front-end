@@ -30,7 +30,9 @@ const Partners = () => (
             <p className={styles["partners__card__description"]}>
               {card.description} <br /> {card.descriptionContinue}
             </p>
-            <button className={styles["partners__card__button"]}>Confira</button>
+            <button className={styles["partners__card__button"]} type="button">
+              Confira
+            </button>
           </div>
         </div>
       ))}

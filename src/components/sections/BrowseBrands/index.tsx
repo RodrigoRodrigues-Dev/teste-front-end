@@ -24,9 +24,13 @@ const BrowseBrands = () => (
         <ul className={styles["browse-brands__list"]}>
           {BRANDS.map((brand) => (
             <li key={brand.id} className={styles["browse-brands__item"]}>
-              <a href="" className={styles["browse-brands__link"]} aria-label={brand.label}>
+              <button
+                type="button"
+                className={styles["browse-brands__link"]}
+                aria-label={brand.label}
+              >
                 <img src={Logo} alt={brand.label} className={styles["browse-brands__logo"]} />
-              </a>
+              </button>
             </li>
           ))}
         </ul>

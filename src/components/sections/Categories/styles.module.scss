@@ -6,8 +6,8 @@
   // Element: list
   &__list {
     display: flex;
-    justify-content: space-between;
-    padding: 0 40px;
+    justify-content: center;
+    gap: 42px;
   }
 
   // Element: card
@@ -16,7 +16,14 @@
     align-items: center;
     flex-direction: column;
 
+    width: 128px;
     margin-top: 39px;
+    padding: 0;
+    border: none;
+    background: none;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
 
     transition: all 0.3s ease;
 
@@ -39,23 +46,28 @@
 
       box-sizing: content-box;
       margin-bottom: 22px;
-      padding: 34px;
+      padding: 33.5px;
 
       background-color: v.$color-gray-lighter;
       box-shadow: 0px 4px 11px 0px v.$color-shadow-light;
-      border-radius: 16px;
+      border-radius: 10px;
 
       transition: background-color 0.3s ease;
 
       // Modifier: first item highlighted
       &--first {
         background-color: v.$color-white;
+        box-shadow: 0px 2px 9px 0px rgba(0, 0, 0, 0.22);
       }
     }
 
     // Element: card text
     &__text {
       font-size: 14px;
+      font-weight: 500;
+      line-height: normal;
+      text-align: center;
+      white-space: nowrap;
 
       color: v.$color-gray-text;
       transition: color 0.3s ease;
@@ -66,5 +78,18 @@
         color: v.$color-purple-bright;
       }
     }
+  }
+}
+
+@media (max-width: 1200px) {
+  .categories__list {
+    justify-content: flex-start;
+    gap: 16px;
+    overflow-x: auto;
+    padding: 0 0 12px;
+  }
+
+  .categories__card {
+    min-width: 112px;
   }
 }

@@ -53,8 +53,8 @@ const Categories = () => (
       <nav>
         <ul className={styles["categories__list"]}>
           {categories.map((category, index) => (
-            <li key={index}>
-              <a href="#" className={styles["categories__card"]}>
+            <li key={category.name}>
+              <button type="button" className={styles["categories__card"]}>
                 {/* Category card image */}
                 <img
                   className={`${styles["categories__card__image"]} ${index === 0 ? styles["categories__card__image--first"] : ""}`}
@@ -67,7 +67,7 @@ const Categories = () => (
                 >
                   {category.name}
                 </span>
-              </a>
+              </button>
             </li>
           ))}
         </ul>
